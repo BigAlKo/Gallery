@@ -32,6 +32,7 @@ public struct Config {
   public struct PageIndicator {
     public static var backgroundColor: UIColor = UIColor(red: 0, green: 3/255, blue: 10/255, alpha: 1)
     public static var textColor: UIColor = UIColor.white
+    public static var indicatorString: String = "gallery_page_indicator"
   }
 
   public struct Camera {
@@ -53,6 +54,13 @@ public struct Config {
     public static var imageLimit: Int = 0
     
   }
+    
+   public struct Gallery {
+    public struct BottomContainer {
+        public static var backgroundColor: UIColor = UIColor(red: 23/255, green: 25/255, blue: 28/255, alpha: 0.8)
+        public static var blurAlpha: Double = 1.0
+    }
+   }
 
   public struct Grid {
 
@@ -106,6 +114,15 @@ public struct Config {
       public static var semibold: UIFont = UIFont.boldSystemFont(ofSize: 1)
     }
   }
+    
+    public struct Text {
+        public static var doneButtonText: String = "Done"
+        public static var photosPageText: String = "PHOTOS"
+        public static var cameraPageText: String = "CAMERA"
+        public static var flashButtonOffText: String = "OFF"
+        public static var flashButtonOnText: String = "ON"
+        public static var dropdownButtonText: String = "ALL PHOTOS"
+    }
 
   public struct VideoEditor {
 

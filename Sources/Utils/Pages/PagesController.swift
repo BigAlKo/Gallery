@@ -86,6 +86,7 @@ class PagesController: UIViewController {
   // MARK: - Setup
 
   func setup() {
+    self.view.backgroundColor = Config.PageIndicator.backgroundColor
     let usePageIndicator = controllers.count > 1
     if usePageIndicator {
       view.addSubview(pageIndicator)

@@ -32,10 +32,11 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
   }
 
   @objc func buttonTouched(_ button: UIButton) {
-    gallery = GalleryController()
+    /*gallery = GalleryController()
     gallery.delegate = self
 
-    present(gallery, animated: true, completion: nil)
+    present(gallery, animated: true, completion: nil)*/
+    configureGallery(tabsToShow: [.imageTab, .cameraTab], imageLimit: 2, recordLocation: false)
   }
 
   // MARK: - LightboxControllerDismissalDelegate
@@ -44,6 +45,30 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
 
   }
 
+  func configureGallery(tabsToShow: [Gallery.Config.GalleryTab], imageLimit: Int, recordLocation: Bool) {
+    Config.tabsToShow = tabsToShow
+    Config.Camera.imageLimit = imageLimit
+    Config.Camera.recordLocation = recordLocation
+    Config.PageIndicator.backgroundColor = UIColor.white
+    Config.PageIndicator.textColor = UIColor.black
+    Config.Camera.BottomContainer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+    //Config.Camera.ShutterButton
+    Config.Camera.ShutterButton.numberColor = .black
+    Config.Grid.FrameView.borderColor = .green
+    Config.Gallery.BottomContainer.blurAlpha = 0.5
+    Config.Gallery.BottomContainer.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
+    Config.PageIndicator.indicatorString = "gallery_page_indicator_green"
+    Config.Text.cameraPageText = "KAMERA"
+    Config.Text.photosPageText = "FOTOS"
+    Config.Text.doneButtonText = "Fertig"
+    Config.Text.dropdownButtonText = "ALLE FOTOS"
+    Config.Text.flashButtonOnText = "AN"
+    Config.Text.flashButtonOffText = "AUS"
+    gallery = GalleryController()
+    gallery.delegate = self
+    self.present(gallery, animated: true, completion: nil)
+  }
+  
   // MARK: - GalleryControllerDelegate
 
   func galleryControllerDidCancel(_ controller: GalleryController) {

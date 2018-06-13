@@ -30,6 +30,7 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
   public override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.view.backgroundColor = .white
     setup()
 
     if let pagesController = makePagesController() {
@@ -48,14 +49,14 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
 
   func makeImagesController() -> ImagesController {
     let controller = ImagesController(cart: cart)
-    controller.title = "Gallery.Images.Title".g_localize(fallback: "PHOTOS")
+    controller.title = "Gallery.Images.Title".g_localize(fallback: Config.Text.photosPageText)
 
     return controller
   }
 
   func makeCameraController() -> CameraController {
     let controller = CameraController(cart: cart)
-    controller.title = "Gallery.Camera.Title".g_localize(fallback: "CAMERA")
+    controller.title = "Gallery.Camera.Title".g_localize(fallback: Config.Text.cameraPageText)
 
     return controller
   }

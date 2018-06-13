@@ -35,7 +35,7 @@ public class AdvancedVideoEditor: VideoEditing {
       return
     }
 
-    guard let writer = try? AVAssetWriter(outputURL: outputURL as URL, fileType: EditInfo.file.type),
+     guard let writer = try? AVAssetWriter(outputURL: outputURL as URL, fileType: EditInfo.file.type),
       let reader = try? AVAssetReader(asset: avAsset)
     else {
       completion(nil)

@@ -1,9 +1,11 @@
 import UIKit
 import AVFoundation
+import JPSVolumeButtonHandler
 
 class CameraController: UIViewController {
 
   var locationManager: LocationManager?
+  var volumeButtonHandler: JPSVolumeButtonHandler?
   lazy var cameraMan: CameraMan = self.makeCameraMan()
   lazy var cameraView: CameraView = self.makeCameraView()
   let once = Once()
@@ -25,7 +27,10 @@ class CameraController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
+    self.volumeButtonHandler = JPSVolumeButtonHandler(up: {self.shutterButtonTouched(self.cameraView.shutterButton)}, downBlock: {self.shutterButtonTouched(self.cameraView.shutterButton)})
+    self.volumeButtonHandler?.start(true)
+    
     setup()
     setupLocation()
   }

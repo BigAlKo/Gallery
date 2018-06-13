@@ -80,7 +80,7 @@ class PageIndicator: UIView {
   }
 
   func makeIndicator() -> UIImageView {
-    let imageView = UIImageView(image: GalleryBundle.image("gallery_page_indicator"))
+    let imageView = UIImageView(image: GalleryBundle.image(Config.PageIndicator.indicatorString))
 
     return imageView
   }

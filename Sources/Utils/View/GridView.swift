@@ -94,13 +94,13 @@ class GridView: UIView {
 
   private func makeBottomView() -> UIView {
     let view = UIView()
-
+    view.backgroundColor = Config.Gallery.BottomContainer.backgroundColor
     return view
   }
 
   private func makeBottomBlurView() -> UIVisualEffectView {
     let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-
+    view.alpha = CGFloat(Config.Gallery.BottomContainer.blurAlpha)
     return view
   }
 
@@ -130,7 +130,7 @@ class GridView: UIView {
     button.setTitleColor(UIColor.white, for: UIControlState())
     button.setTitleColor(UIColor.lightGray, for: .disabled)
     button.titleLabel?.font = Config.Font.Text.regular.withSize(16)
-    button.setTitle("Gallery.Done".g_localize(fallback: "Done"), for: UIControlState())
+    button.setTitle("Gallery.Done".g_localize(fallback: Config.Text.doneButtonText), for: UIControlState())
     
     return button
   }
