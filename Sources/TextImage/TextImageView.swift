@@ -53,7 +53,7 @@ class TextImageView: UIView {
     
     private func makeBackgroundView() -> GradientView {
         let view = GradientView()
-        view.gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
+        view.gradientLayer.colors = Config.TextImage.backgroundColors.color1
         view.gradientLayer.gradient = GradientPoint.topLeftBottomRight.draw()
         view.tag = 0
         return view
@@ -66,15 +66,15 @@ class TextImageView: UIView {
         if #available(iOS 10.0, *) {
             textView.adjustsFontForContentSizeCategory = true
         } 
-        textView.textColor = .white
+        textView.textColor = UIColor.white.withAlphaComponent(0.7)
         textView.isScrollEnabled = false
-        var attributedString: NSAttributedString? = nil
-        if let aSize = UIFont(name: "Helvetica", size: 60.0) {
-            attributedString = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: aSize])
-        }
+        let attributedString = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: Config.TextImage.Text.font])
         textView.attributedText = attributedString
-        textView.font = UIFont(name: "Helvetica", size: 60.0)
+        textView.font = Config.TextImage.Text.placeholderFont
+        textView.text = Config.TextImage.Text.placeholder
         textView.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+        textView.textContainer.maximumNumberOfLines = 3
+        //textView.textContainer.lineBreakMode = .byTruncatingTail
         return textView
     }
     

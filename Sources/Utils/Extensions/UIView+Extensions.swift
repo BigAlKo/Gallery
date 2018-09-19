@@ -353,11 +353,33 @@ class GradientView: UIView {
     }
 }
 
+class GradientRoundedButtonView: RoundedButton {
+    override public class var layerClass: Swift.AnyClass {
+        get {
+            return GradientLayer.self
+        }
+    }
+}
+
+class GradientRoundedView: RoundedView {
+    override public class var layerClass: Swift.AnyClass {
+        get {
+            return GradientLayer.self
+        }
+    }
+}
+
 protocol GradientViewProvider {
     associatedtype GradientViewType: CAGradientLayer
 }
 
 extension GradientViewProvider where Self: UIView {
+    var gradientLayer: GradientViewType {
+        return layer as! Self.GradientViewType
+    }
+}
+
+extension GradientViewProvider where Self: UIButton {
     var gradientLayer: GradientViewType {
         return layer as! Self.GradientViewType
     }
@@ -383,6 +405,7 @@ extension UIView: GradientViewProvider {
     }
     
 }
+
 
 extension Comparable {
     func clamped(to limits: ClosedRange<Self>) -> Self {

@@ -114,7 +114,9 @@ public struct Config {
       public static var bold: UIFont = UIFont.boldSystemFont(ofSize: 1)
       public static var semibold: UIFont = UIFont.boldSystemFont(ofSize: 1)
     }
+    
   }
+
     
     public struct Text {
         public static var doneButtonText: String = "Done"
@@ -133,4 +135,20 @@ public struct Config {
     public static var portraitSize: CGSize = CGSize(width: 360, height: 640)
     public static var landscapeSize: CGSize = CGSize(width: 640, height: 360)
   }
+    
+    public struct TextImage {
+        
+        public struct backgroundColors {
+            public static var color1 = [UIColor.purple.cgColor, UIColor.green.cgColor]
+            public static var color2 = [UIColor.red.cgColor, UIColor.blue.cgColor]
+            public static var color3 = [UIColor.blue.cgColor, UIColor.green.cgColor]
+        }
+        
+        public struct Text {
+            
+            public static var font: UIFont = UIFont(name: "Helvetica", size: 60.0)!
+            public static var placeholder: String = "ZUM SCHREIBEN ANTIPPEN"
+            public static var placeholderFont: UIFont = UIFont(name: "Helvetica", size: 30.0)!
+        }
+    }
 }

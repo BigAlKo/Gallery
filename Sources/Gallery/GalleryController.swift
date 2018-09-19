@@ -1,6 +1,7 @@
 import UIKit
 import AVFoundation
 
+@available(iOS 10.0, *)
 public protocol GalleryControllerDelegate: class {
 
   func galleryController(_ controller: GalleryController, didSelectImages images: [Image])
@@ -9,6 +10,7 @@ public protocol GalleryControllerDelegate: class {
   func galleryControllerDidCancel(_ controller: GalleryController)
 }
 
+@available(iOS 10.0, *)
 public class GalleryController: UIViewController, PermissionControllerDelegate {
 
   public weak var delegate: GalleryControllerDelegate?
