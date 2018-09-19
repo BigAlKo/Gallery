@@ -18,7 +18,7 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Cache
     - Hue
     - Imaginary
@@ -41,4 +41,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c95332f23ba226af26fd7b4ba1d3ffabf7836bf0
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

@@ -129,7 +129,7 @@ class CameraController: UIViewController {
 
       button.isEnabled = true
       strongSelf.cameraView.stackView.stopLoading()
-
+        
       if let asset = asset {
         strongSelf.cart.add(Image(asset: asset), newlyTaken: true)
       }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EBF9DC7212B80E800F3AB12 /* TextImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DC5212B80E800F3AB12 /* TextImageController.swift */; };
+		4EBF9DC8212B80E800F3AB12 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DC6212B80E800F3AB12 /* ColorPickerViewController.swift */; };
+		4EBF9DED212B865D00F3AB12 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DEC212B865D00F3AB12 /* UIAlertController+Extensions.swift */; };
+		4EBF9DEF212B86DD00F3AB12 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DEE212B86DC00F3AB12 /* GradientSlider.swift */; };
+		4EBF9DF1212B86F000F3AB12 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DF0212B86F000F3AB12 /* UIColor+Extensions.swift */; };
+		4EBF9DF3212B871A00F3AB12 /* Common+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DF2212B871A00F3AB12 /* Common+Extensions.swift */; };
+		4EBF9DF5212B8BA600F3AB12 /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBF9DF4212B8BA600F3AB12 /* TextImageView.swift */; };
 		D24CF7321E93D1FB002E6484 /* Gallery.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D24CF7311E93D1FB002E6484 /* Gallery.bundle */; };
 		D27B72ED1D6EEEC80093318F /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B72EC1D6EEEC80093318F /* Tests.swift */; };
 		D2D1A6CA1F84F4DB0083D4C5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1A6901F84F4DB0083D4C5 /* Album.swift */; };
@@ -71,6 +78,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EBF9DC5212B80E800F3AB12 /* TextImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageController.swift; sourceTree = "<group>"; };
+		4EBF9DC6212B80E800F3AB12 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		4EBF9DEC212B865D00F3AB12 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		4EBF9DEE212B86DC00F3AB12 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
+		4EBF9DF0212B86F000F3AB12 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		4EBF9DF2212B871A00F3AB12 /* Common+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Common+Extensions.swift"; sourceTree = "<group>"; };
+		4EBF9DF4212B8BA600F3AB12 /* TextImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		D24CF7311E93D1FB002E6484 /* Gallery.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Gallery.bundle; sourceTree = "<group>"; };
 		D27B72EC1D6EEEC80093318F /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		D27B730C1D6EF04D0093318F /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
@@ -149,6 +163,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EBF9DC4212B80E800F3AB12 /* TextImage */ = {
+			isa = PBXGroup;
+			children = (
+				4EBF9DEE212B86DC00F3AB12 /* GradientSlider.swift */,
+				4EBF9DC5212B80E800F3AB12 /* TextImageController.swift */,
+				4EBF9DC6212B80E800F3AB12 /* ColorPickerViewController.swift */,
+				4EBF9DF4212B8BA600F3AB12 /* TextImageView.swift */,
+			);
+			path = TextImage;
+			sourceTree = "<group>";
+		};
 		D24CF7301E93D1FB002E6484 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +235,9 @@
 		D2D1A69C1F84F4DB0083D4C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4EBF9DF2212B871A00F3AB12 /* Common+Extensions.swift */,
+				4EBF9DF0212B86F000F3AB12 /* UIColor+Extensions.swift */,
+				4EBF9DEC212B865D00F3AB12 /* UIAlertController+Extensions.swift */,
 				D2D1A69D1F84F4DB0083D4C5 /* Array+Extensions.swift */,
 				D2D1A69E1F84F4DB0083D4C5 /* AVAsset+Extensions.swift */,
 				D2D1A69F1F84F4DB0083D4C5 /* String+Extensions.swift */,
@@ -330,6 +358,7 @@
 		D5C629691C3A809D007F7B7C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4EBF9DC4212B80E800F3AB12 /* TextImage */,
 				D2D1A6BB1F84F4DB0083D4C5 /* Camera */,
 				D2D1A6C21F84F4DB0083D4C5 /* Gallery */,
 				D2D1A68F1F84F4DB0083D4C5 /* Images */,
@@ -458,14 +487,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBF9DC8212B80E800F3AB12 /* ColorPickerViewController.swift in Sources */,
 				D2D1A6F21F84F4DB0083D4C5 /* StackView.swift in Sources */,
 				D2D1A6F81F84F4DB0083D4C5 /* VideosController.swift in Sources */,
 				D2D1A6CA1F84F4DB0083D4C5 /* Album.swift in Sources */,
+				4EBF9DF1212B86F000F3AB12 /* UIColor+Extensions.swift in Sources */,
 				D2D1A6F11F84F4DB0083D4C5 /* ShutterButton.swift in Sources */,
 				D2D1A6D61F84F4DB0083D4C5 /* String+Extensions.swift in Sources */,
 				D2D1A6E41F84F4DB0083D4C5 /* Utils.swift in Sources */,
 				D2D1A6DE1F84F4DB0083D4C5 /* Once.swift in Sources */,
 				D2D1A6F41F84F4DB0083D4C5 /* GalleryController.swift in Sources */,
+				4EBF9DF3212B871A00F3AB12 /* Common+Extensions.swift in Sources */,
 				D2D1A6E31F84F4DB0083D4C5 /* PermissionView.swift in Sources */,
 				D2D1A6EF1F84F4DB0083D4C5 /* CameraMan.swift in Sources */,
 				D2D1A6E21F84F4DB0083D4C5 /* PermissionController.swift in Sources */,
@@ -473,6 +505,7 @@
 				D2D1A6D21F84F4DB0083D4C5 /* DropdownController.swift in Sources */,
 				D2D1A6D41F84F4DB0083D4C5 /* Array+Extensions.swift in Sources */,
 				D2D1A6F71F84F4DB0083D4C5 /* VideoCell.swift in Sources */,
+				4EBF9DC7212B80E800F3AB12 /* TextImageController.swift in Sources */,
 				D2D1A6E81F84F4DB0083D4C5 /* VideoEditor.swift in Sources */,
 				D2D1A6DA1F84F4DB0083D4C5 /* UIViewController+Extensions.swift in Sources */,
 				D2D1A6CC1F84F4DB0083D4C5 /* Image.swift in Sources */,
@@ -490,7 +523,9 @@
 				D2D1A6F91F84F4DB0083D4C5 /* VideosLibrary.swift in Sources */,
 				D2D1A6DF1F84F4DB0083D4C5 /* PageIndicator.swift in Sources */,
 				D2D1A6D11F84F4DB0083D4C5 /* Constraints.swift in Sources */,
+				4EBF9DED212B865D00F3AB12 /* UIAlertController+Extensions.swift in Sources */,
 				D2D1A6DD1F84F4DB0083D4C5 /* LocationManager.swift in Sources */,
+				4EBF9DEF212B86DD00F3AB12 /* GradientSlider.swift in Sources */,
 				D2D1A6F51F84F4DB0083D4C5 /* Video.swift in Sources */,
 				D2D1A6D31F84F4DB0083D4C5 /* EventHub.swift in Sources */,
 				D2D1A6CF1F84F4DB0083D4C5 /* ImagesLibrary.swift in Sources */,
@@ -505,6 +540,7 @@
 				D2D1A6E01F84F4DB0083D4C5 /* PagesController.swift in Sources */,
 				D2D1A6EC1F84F4DB0083D4C5 /* FrameView.swift in Sources */,
 				D2D1A6ED1F84F4DB0083D4C5 /* GridView.swift in Sources */,
+				4EBF9DF5212B8BA600F3AB12 /* TextImageView.swift in Sources */,
 				D2D1A6DB1F84F4DB0083D4C5 /* Fetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

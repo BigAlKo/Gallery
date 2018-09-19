@@ -36,7 +36,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
     gallery.delegate = self
 
     present(gallery, animated: true, completion: nil)*/
-    configureGallery(tabsToShow: [.imageTab, .cameraTab], imageLimit: 2, recordLocation: false)
+    configureGallery(tabsToShow: [.imageTab, .cameraTab, .textTab], imageLimit: 2, recordLocation: false)
   }
 
   // MARK: - LightboxControllerDismissalDelegate

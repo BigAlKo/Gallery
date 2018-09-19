@@ -67,6 +67,13 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
 
     return controller
   }
+    
+  func makeTextImageController() -> TextImageController {
+        let controller = TextImageController(cart: cart)
+        controller.title = "Gallery.TextImage.Title".g_localize(fallback: "TEXT")
+    
+        return controller
+  }
 
   func makePagesController() -> PagesController? {
     guard Permission.Photos.status == .authorized else {
@@ -84,6 +91,8 @@ public class GalleryController: UIViewController, PermissionControllerDelegate {
         return makeCameraController()
       } else if tab == .videoTab {
         return makeVideosController()
+      } else if tab == .textTab {
+        return makeTextImageController()
       } else {
         return nil
       }
