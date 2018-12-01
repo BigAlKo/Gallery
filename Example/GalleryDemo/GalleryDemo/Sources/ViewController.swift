@@ -19,7 +19,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
 
     button = UIButton(type: .system)
     button.frame.size = CGSize(width: 200, height: 50)
-    button.setTitle("Open Gallery", for: UIControlState())
+    button.setTitle("Open Gallery", for: UIControl.State())
     button.addTarget(self, action: #selector(buttonTouched(_:)), for: .touchUpInside)
 
     view.addSubview(button)
