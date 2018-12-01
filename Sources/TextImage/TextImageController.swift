@@ -136,7 +136,7 @@ class TextImageController: UIViewController {
     private func makeColorPickerButton() -> UIButton {
         let button = UIButton(type: .custom)
         //button.setTitle("WTF", for: .normal)
-        button.setImage(GalleryBundle.image("gallery_color_picker"), for: UIControlState())
+        button.setImage(GalleryBundle.image("gallery_color_picker"), for: UIControl.State())
     
         return button
     }
@@ -152,7 +152,7 @@ class TextImageController: UIViewController {
         let button = UIButton(type: .system)
         //button.setTitle("Hinzufügen", for: .normal)
         button.tintColor = .white
-        button.setImage(GalleryBundle.image("gallery_done_button"), for: UIControlState())
+        button.setImage(GalleryBundle.image("gallery_done_button"), for: UIControl.State())
         return button
     }
     
@@ -167,10 +167,10 @@ class TextImageController: UIViewController {
     
     func makeDoneButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setTitleColor(UIColor.white, for: UIControlState())
+        button.setTitleColor(UIColor.white, for: UIControl.State())
         button.setTitleColor(UIColor.lightGray, for: .disabled)
         button.titleLabel?.font = Config.Font.Text.regular.withSize(16)
-        button.setTitle("Gallery.Done".g_localize(fallback: Config.Text.doneButtonText), for: UIControlState())
+        button.setTitle("Gallery.Done".g_localize(fallback: Config.Text.doneButtonText), for: UIControl.State())
         
         return button
     }

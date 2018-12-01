@@ -7,12 +7,11 @@ class AlbumCell: UITableViewCell {
   lazy var itemCountLabel: UILabel = self.makeItemCountLabel()
 
   // MARK: - Initialization
-
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-    setup()
-  }
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setup()
+    }
 
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -34,7 +33,7 @@ class AlbumCell: UITableViewCell {
 
   func setup() {
     [albumImageView, albumTitleLabel, itemCountLabel].forEach {
-      addSubview($0 as! UIView)
+        addSubview($0 )
     }
 
     albumImageView.g_pin(on: .left, constant: 12)

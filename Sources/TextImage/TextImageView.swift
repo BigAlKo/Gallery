@@ -68,7 +68,7 @@ class TextImageView: UIView {
         } 
         textView.textColor = UIColor.white.withAlphaComponent(0.7)
         textView.isScrollEnabled = false
-        let attributedString = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: Config.TextImage.Text.font])
+        let attributedString = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: Config.TextImage.Text.font])
         textView.attributedText = attributedString
         textView.font = Config.TextImage.Text.placeholderFont
         textView.text = Config.TextImage.Text.placeholder
