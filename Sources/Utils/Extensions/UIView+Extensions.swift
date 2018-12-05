@@ -36,16 +36,16 @@ extension UIView {
     /// Should the corner be as circle
     public var circleCorner: Bool {
         get {
-            return min(bounds.size.height, bounds.size.width) / 2 == cornerRadius
+            return min(bounds.size.height, bounds.size.width) / 2 == galleryCornerRadius
         }
         set {
-            cornerRadius = newValue ? min(bounds.size.height, bounds.size.width) / 2 : cornerRadius
+            galleryCornerRadius = newValue ? min(bounds.size.height, bounds.size.width) / 2 : galleryCornerRadius
         }
     }
     
     @IBInspectable
     /// Corner radius of view; also inspectable from Storyboard.
-    public var cornerRadius: CGFloat {
+    public var galleryCornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
