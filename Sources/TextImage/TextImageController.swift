@@ -176,16 +176,13 @@ class TextImageController: UIViewController {
     }
     
     func getGradientColor() -> [CGColor] {
-        switch (textImageView.backgroundView.tag) {
-        case 0:
-            return Config.TextImage.backgroundColors.color1
-        case 1:
-            return Config.TextImage.backgroundColors.color2
-        case 2:
-            return Config.TextImage.backgroundColors.color3
-        default:
-            return Config.TextImage.backgroundColors.color1
+        
+        if  Config.TextImage.backgroundColors.colors.indices.contains(textImageView.backgroundView.tag) {
+            return Config.TextImage.backgroundColors.colors[textImageView.backgroundView.tag]
+        } else {
+            return Config.TextImage.backgroundColors.colors.first ?? Config.TextImage.backgroundColors.color1
         }
+        
     }
 }
 
@@ -195,6 +192,21 @@ extension TextImageController {
     @objc func colorPickerButtonTapped(_ button: UIButton) {
       
         button.gradientLayer.colors = getGradientColor()
+        
+        let currentTag = textImageView.backgroundView.tag
+        
+        if currentTag < Config.TextImage.backgroundColors.colors.count {
+            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.colors[currentTag]
+            textImageView.backgroundView.tag = currentTag + 1
+        } else {
+            textImageView.backgroundView.tag = 0
+            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.colors[0]
+        }
+        
+        /*
+        
+        textImageView.backgroundView.tag = textImageView.backgroundView.tag + 1
+        
         
         switch (textImageView.backgroundView.tag) {
         case 0:
@@ -210,7 +222,7 @@ extension TextImageController {
             textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.color1
             textImageView.backgroundView.tag = 0
         }
-        
+        */
         
         
     }

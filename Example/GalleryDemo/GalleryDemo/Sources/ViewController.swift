@@ -64,6 +64,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
     Config.Text.dropdownButtonText = "ALLE FOTOS"
     Config.Text.flashButtonOnText = "AN"
     Config.Text.flashButtonOffText = "AUS"
+    Config.TextImage.backgroundColors.colors.append([UIColor.cyan.cgColor, UIColor.purple.cgColor])
     gallery = GalleryController()
     gallery.delegate = self
     self.present(gallery, animated: true, completion: nil)
@@ -100,7 +101,9 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
 
   func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
     LightboxConfig.DeleteButton.enabled = true
-
+    LightboxConfig.CloseButton.text = "Schließen"
+    
+    
     SVProgressHUD.show()
     Image.resolve(images: images, completion: { [weak self] resolvedImages in
       SVProgressHUD.dismiss()
@@ -117,6 +120,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
 
     let lightboxImages = images.map({ LightboxImage(image: $0) })
     let lightbox = LightboxController(images: lightboxImages, startIndex: 0)
+    lightbox.dynamicBackground
     lightbox.dismissalDelegate = self
 
     gallery.present(lightbox, animated: true, completion: nil)

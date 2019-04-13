@@ -142,6 +142,12 @@ public struct Config {
             public static var color1 = [UIColor.purple.cgColor, UIColor.green.cgColor]
             public static var color2 = [UIColor.red.cgColor, UIColor.blue.cgColor]
             public static var color3 = [UIColor.blue.cgColor, UIColor.green.cgColor]
+            
+            public static var colors: [[CGColor]] = [
+                 [UIColor.purple.cgColor, UIColor.green.cgColor],
+                 [UIColor.red.cgColor, UIColor.blue.cgColor],
+                 [UIColor.blue.cgColor, UIColor.green.cgColor]
+            ]
         }
         
         public struct Text {

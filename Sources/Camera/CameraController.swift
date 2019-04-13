@@ -28,8 +28,13 @@ class CameraController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.volumeButtonHandler = JPSVolumeButtonHandler(up: {self.shutterButtonTouched(self.cameraView.shutterButton)}, downBlock: {self.shutterButtonTouched(self.cameraView.shutterButton)})
-    self.volumeButtonHandler?.start(true)
+    self.volumeButtonHandler = JPSVolumeButtonHandler(up: {
+        self.shutterButtonTouched(self.cameraView.shutterButton)
+    }, downBlock: {
+        self.shutterButtonTouched(self.cameraView.shutterButton)
+    })
+    
+    
     
     setup()
     setupLocation()
@@ -37,13 +42,13 @@ class CameraController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    self.volumeButtonHandler?.start(true)
     locationManager?.start()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-
+    self.volumeButtonHandler?.stop()
     locationManager?.stop()
   }
 

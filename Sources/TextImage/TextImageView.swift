@@ -74,6 +74,7 @@ class TextImageView: UIView {
         textView.text = Config.TextImage.Text.placeholder
         textView.autocapitalizationType = UITextAutocapitalizationType.allCharacters
         textView.textContainer.maximumNumberOfLines = 3
+        textView.autocorrectionType = .no
         //textView.textContainer.lineBreakMode = .byTruncatingTail
         return textView
     }
