@@ -155,6 +155,8 @@ public struct Config {
             public static var font: UIFont = UIFont(name: "Helvetica", size: 60.0)!
             public static var placeholder: String = "ZUM SCHREIBEN ANTIPPEN"
             public static var placeholderFont: UIFont = UIFont(name: "Helvetica", size: 30.0)!
+            public static var colorPickerText: String = "Farbe ändern"
+            public static var colorPickerFont: UIFont = UIFont(name: "Helvetica", size: 13.0)!
         }
     }
 }

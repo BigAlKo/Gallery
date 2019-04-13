@@ -21,6 +21,7 @@ class TextImageController: UIViewController {
     lazy var stackView: StackView = self.makeStackView()
     @available(iOS 10.0, *)
     lazy var colorPickerButton: UIButton = self.makeColorPickerButton()
+    lazy var colorPickerTextButton: UIButton = self.makeColorPickerText()
     lazy var addTextImageButton: UIButton = self.makeAddTextImageButton()
     lazy var doneButton: UIButton = self.makeDoneButton()
     lazy var colorPickerView: UIView = self.makeColorButton()
@@ -86,18 +87,26 @@ class TextImageController: UIViewController {
         stackView.addTarget(self, action: #selector(stackViewTouched(_:)), for: .touchUpInside)
 
         self.view.addSubview(self.addTextImageButton)
+        self.view.addSubview(self.colorPickerTextButton)
+        colorPickerTextButton.addTarget(self, action: #selector(colorPickerButtonTapped(_:)), for: .touchUpInside)
         
         if #available(iOS 11, *) {
             Constraint.on(
                 addTextImageButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
                 addTextImageButton.heightAnchor.constraint(equalToConstant: 30.0),
-                addTextImageButton.widthAnchor.constraint(equalToConstant: 30.0),
+                addTextImageButton.widthAnchor.constraint(equalToConstant: 120.0),
                 addTextImageButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+                //addTextImageButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+                //addTextImageButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: ),
                 
                 colorPickerView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 20),
                 colorPickerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
                 colorPickerView.heightAnchor.constraint(equalToConstant: 30.0),
-                colorPickerView.widthAnchor.constraint(equalToConstant: 30.0)
+                colorPickerView.widthAnchor.constraint(equalToConstant: 30.0),
+                
+                colorPickerTextButton.leftAnchor.constraint(equalTo: self.colorPickerView.rightAnchor, constant: 5),
+                colorPickerTextButton.centerYAnchor.constraint(equalTo: self.colorPickerView.centerYAnchor, constant: 0),
+                colorPickerTextButton.widthAnchor.constraint(equalToConstant: 100)
             )
         } else {
             Constraint.on(
@@ -141,6 +150,16 @@ class TextImageController: UIViewController {
         return button
     }
     
+    private func makeColorPickerText() -> UIButton {
+        let label = UIButton()
+        label.setTitle(Config.TextImage.Text.colorPickerText, for: .normal)
+        label.setTitleColor(UIColor.white, for: .normal)
+        label.setTitleColor(UIColor.lightGray, for: .highlighted)
+        label.titleLabel?.font = Config.TextImage.Text.colorPickerFont
+        label.titleLabel?.textAlignment = .left
+        return label
+    }
+    
     @available(iOS 10.0, *)
     private func makeColorButton() -> UIView {
         let view: RoundedBorderView = RoundedBorderView()
@@ -151,8 +170,16 @@ class TextImageController: UIViewController {
     private func makeAddTextImageButton() -> UIButton {
         let button = UIButton(type: .system)
         //button.setTitle("Hinzufügen", for: .normal)
-        button.tintColor = .white
-        button.setImage(GalleryBundle.image("gallery_done_button"), for: UIControl.State())
+        //button.tintColor = .white
+        //button.setImage(GalleryBundle.image("gallery_done_button"), for: UIControl.State())
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.lightGray, for: .highlighted)
+        button.titleLabel?.font = Config.Font.Text.regular.withSize(13.0)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 10
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.setTitle("Text übernehmen", for: .normal)
         return button
     }
     
@@ -177,10 +204,21 @@ class TextImageController: UIViewController {
     
     func getGradientColor() -> [CGColor] {
         
-        if  Config.TextImage.backgroundColors.colors.indices.contains(textImageView.backgroundView.tag) {
-            return Config.TextImage.backgroundColors.colors[textImageView.backgroundView.tag]
+        if Config.TextImage.backgroundColors.colors.indices.contains(textImageView.backgroundView.tag + 1) {
+            return Config.TextImage.backgroundColors.colors[textImageView.backgroundView.tag + 1]
         } else {
-            return Config.TextImage.backgroundColors.colors.first ?? Config.TextImage.backgroundColors.color1
+            // check if tag is the last tag
+            if Config.TextImage.backgroundColors.colors.indices.last == textImageView.backgroundView.tag {
+                return Config.TextImage.backgroundColors.colors[0]
+            } else if Config.TextImage.backgroundColors.colors.indices.contains(1) {
+                return Config.TextImage.backgroundColors.colors[1]
+            } else if Config.TextImage.backgroundColors.colors.indices.contains(0) {
+                return Config.TextImage.backgroundColors.colors[0]
+            } else {
+                return Config.TextImage.backgroundColors.color1
+            }
+            
+            
         }
         
     }
@@ -189,9 +227,9 @@ class TextImageController: UIViewController {
 @available(iOS 10.0, *)
 extension TextImageController {
     
-    @objc func colorPickerButtonTapped(_ button: UIButton) {
+    @objc func colorPickerButtonTapped(_ passedButton: UIButton) {
       
-        button.gradientLayer.colors = getGradientColor()
+        self.button.gradientLayer.colors = getGradientColor()
         
         let currentTag = textImageView.backgroundView.tag
         
@@ -202,6 +240,7 @@ extension TextImageController {
             textImageView.backgroundView.tag = 0
             textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.colors[0]
         }
+        
         
         /*
         
