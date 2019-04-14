@@ -40,7 +40,6 @@ class TextImageController: UIViewController {
     }
     
     // MARK: - Life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +65,7 @@ class TextImageController: UIViewController {
         let gradientLayer = GradientRoundedView()
         gradientLayer.gradientLayer.colors = getGradientColor()
         button.gradientLayer.colors = getGradientColor()
+        textImageView.backgroundView.tag = 1
         colorPickerView.addSubview(button)
         
         Constraint.on(
@@ -144,9 +144,7 @@ class TextImageController: UIViewController {
     @available(iOS 10.0, *)
     private func makeColorPickerButton() -> UIButton {
         let button = UIButton(type: .custom)
-        //button.setTitle("WTF", for: .normal)
         button.setImage(GalleryBundle.image("gallery_color_picker"), for: UIControl.State())
-    
         return button
     }
     
@@ -169,9 +167,6 @@ class TextImageController: UIViewController {
     
     private func makeAddTextImageButton() -> UIButton {
         let button = UIButton(type: .system)
-        //button.setTitle("Hinzufügen", for: .normal)
-        //button.tintColor = .white
-        //button.setImage(GalleryBundle.image("gallery_done_button"), for: UIControl.State())
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightGray, for: .highlighted)
         button.titleLabel?.font = Config.Font.Text.regular.withSize(13.0)
@@ -229,6 +224,7 @@ extension TextImageController {
     
     @objc func colorPickerButtonTapped(_ passedButton: UIButton) {
       
+        
         self.button.gradientLayer.colors = getGradientColor()
         
         let currentTag = textImageView.backgroundView.tag
@@ -239,30 +235,8 @@ extension TextImageController {
         } else {
             textImageView.backgroundView.tag = 0
             textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.colors[0]
+            textImageView.backgroundView.tag = textImageView.backgroundView.tag + 1
         }
-        
-        
-        /*
-        
-        textImageView.backgroundView.tag = textImageView.backgroundView.tag + 1
-        
-        
-        switch (textImageView.backgroundView.tag) {
-        case 0:
-            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.color1
-            textImageView.backgroundView.tag = 1
-        case 1:
-            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.color2
-            textImageView.backgroundView.tag = 2
-        case 2:
-            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.color3
-            textImageView.backgroundView.tag = 0
-        default:
-            textImageView.backgroundView.gradientLayer.colors = Config.TextImage.backgroundColors.color1
-            textImageView.backgroundView.tag = 0
-        }
-        */
-        
         
     }
     
