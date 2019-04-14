@@ -281,10 +281,21 @@ extension TextImageController {
     }
     
     @objc func doneButtonTouched(_ button: UIButton) {
-        if cart.images.count > 0 {
-            EventHub.shared.doneWithImages?()
+        
+        func done() {
+            if cart.images.count > 0 {
+                EventHub.shared.doneWithImages?()
+            } else {
+                EventHub.shared.close?()
+            }
+        }
+        
+        if textImageView.textView.text != Config.TextImage.Text.placeholder && textImageView.textView.text != "" && isBelowImageLimit() {
+            stackView.startLoading()
+            self.textImageView.textView.resignFirstResponder()
+            UIImageWriteToSavedPhotosAlbum(self.textImageView.backgroundView.asImage(), self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
         } else {
-            EventHub.shared.close?()
+            done()
         }
     }
 }
